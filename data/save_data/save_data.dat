@@ -1,0 +1,14 @@
+- identifiers: {}
+  keys: 0
+  money: 0
+  name: A
+  save_world_coords: !!python/tuple
+  - 5
+  - 5
+  start_coord: !!python/tuple
+  - 9
+  - 4
+  start_direction: right
+  world: overworld.wrl
+- EMPTY
+- EMPTY
