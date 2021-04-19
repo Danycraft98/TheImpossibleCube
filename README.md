@@ -6,25 +6,23 @@
 [![LinkedIn][linkedin-shield]][linkedin-url]
 
 <br />
-<p align="center">
-    <a href="https://github.com/Danycraft98/ECPlaza-Tools">
-        <img src="static/images/logo.png" alt="Logo">
+<div style="text-align:center">
+    <a href="https://github.com/Danycraft98/TheImpossibleCube">
+        <img src="static/images/misc/icon.png" alt="Logo">
     </a>
-    <h3 align="center">The Impossible Cube</h3>
-    <p align="center">
+    <h3 style="text-align:center">The Impossible Cube</h3>
+    <p style="text-align:center">
         Game Application. The README is still under construction!!
         <br />
-        <a href="https://github.com/Danycraft98/ECPlaza-Tools/wiki"><strong>Explore the docs</strong></a> | 
-        <a href="https://danycraft98.github.io/ECPlaza-Tools/"><strong>Read Me Website</strong></a>
-        <br />
-        <br />
-        <a href="https://ecplaza-tools.herokuapp.com/">View Demo</a>
+        <a href="https://github.com/Danycraft98/TheImpossibleCube/wiki">Explore the docs</a>
         ·
-        <a href="https://github.com/Danycraft98/ECPlaza-Tools/issues">Report Bug</a>
+        <a href="https://danycraft98.github.io/TheImpossibleCube/">Read Me Website</a>
         ·
-        <a href="https://github.com/Danycraft98/ECPlaza-Tools/issues">Request Feature</a>
+        <a href="https://github.com/Danycraft98/TheImpossibleCube/issues">Report Bug</a>
+        ·
+        <a href="https://github.com/Danycraft98/TheImpossibleCube/issues">Request Feature</a>
     </p>
-</p>
+</div>
 
 <!-- TABLE OF CONTENTS -->
 #### Table of Content
@@ -61,7 +59,7 @@ These instructions will get you a copy of the project up and running on your loc
 
 This is an example of how to list things you need to use the software and how to install them.
 * [Python 3.9.1](https://python.org/)
-* [Django (3.1)](https://www.djangoproject.com/)
+* [PyGame (2.0.1)](https://www.pygame.org/)
 See the requirements.txt for more PyPi packages you need.
   ```sh
   pip install -r requirements.txt
@@ -74,22 +72,17 @@ Make sure you have Python 3.9.1 and mysql installed.
 
 1. Clone the repo
 ```sh
-$ git clone https://github.com/Danycraft98/ECPlaza-Tools.git
-$ cd ECPlaza-Tools
+$ git clone https://github.com/Danycraft98/TheImpossibleCube.git
+$ cd TheImpossibleCube
 ```
 2. Create the virtual environment and install requirements from requirements.txt.
 ```sh
-$ python3 -m venv ECPlaza-Tools
+$ python3 -m venv TheImpossibleCube
 $ pip install -r requirements.txt
-```
-3. Make migrations and migrate them.
-```sh
-$ python manage.py makemigrations
-$ python manage.py migrate
 ```
 4. Finally, run the application.
 ```sh
-$ python manage.py runserver
+$ python main.py
 ```
 
 Your app should now be running on [localhost:8000](http://localhost:8000/).
@@ -97,19 +90,15 @@ Your app should now be running on [localhost:8000](http://localhost:8000/).
 
 #### Useful Commands
 ##### Python Commands
-Create Migration files<br/>
-`$ python manage.py makemigrations`
-
-Load Migrations (Make sure the database is created before executing the command)<br/>
-`$ python manage.py migrate`
-
+???<br/>
+`$ python ???`
 
 <!-- USAGE EXAMPLES -->
 ## Usage
 
 Use this space to show useful examples of how a project can be used. Additional screenshots, code examples and demos work well in this space. You may also link to more resources.
 
-_For more examples, please refer to the [Documentation](https://github.com/Danycraft98/ECPlaza-Tools/wiki)_
+_For more examples, please refer to the [Documentation](https://github.com/Danycraft98/TheImpossibleCube/wiki)_
 
 
 
@@ -163,16 +152,16 @@ Project Link: [The Impossible Cube](https://github.com/Danycraft98/TheImpossible
 <!-- MARKDOWN LINKS & IMAGES -->
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
 [logo-uri]: static/images/logo.png
-[contributors-shield]: https://img.shields.io/github/contributors/Danycraft98/ECPlaza-Tools.svg?style=for-the-badge
-[contributors-url]: https://github.com/Danycraft98/ECPlaza-Tools/graphs/contributors
-[forks-shield]: https://img.shields.io/github/forks/Danycraft98/ECPlaza-Tools.svg?style=for-the-badge
-[forks-url]: https://github.com/Danycraft98/ECPlaza-Tools/network/members
-[stars-shield]: https://img.shields.io/github/stars/Danycraft98/ECPlaza-Tools.svg?style=for-the-badge
-[stars-url]: https://github.com/Danycraft98/ECPlaza-Tools/stargazers
-[issues-shield]: https://img.shields.io/github/issues/Danycraft98/ECPlaza-Tools.svg?style=for-the-badge
-[issues-url]: https://github.com/Danycraft98/ECPlaza-Tools/issues
-[license-shield]: https://img.shields.io/github/license/Danycraft98/ECPlaza-Tools.svg?style=for-the-badge
-[license-url]: https://github.com/Danycraft98/ECPlaza-Tools/blob/master/LICENSE.txt
+[contributors-shield]: https://img.shields.io/github/contributors/Danycraft98/TheImpossibleCube.svg?style=for-the-badge
+[contributors-url]: https://github.com/Danycraft98/TheImpossibleCube/graphs/contributors
+[forks-shield]: https://img.shields.io/github/forks/Danycraft98/TheImpossibleCube.svg?style=for-the-badge
+[forks-url]: https://github.com/Danycraft98/TheImpossibleCube/network/members
+[stars-shield]: https://img.shields.io/github/stars/Danycraft98/TheImpossibleCube.svg?style=for-the-badge
+[stars-url]: https://github.com/Danycraft98/TheImpossibleCube/stargazers
+[issues-shield]: https://img.shields.io/github/issues/Danycraft98/TheImpossibleCube.svg?style=for-the-badge
+[issues-url]: https://github.com/Danycraft98/TheImpossibleCube/issues
+[license-shield]: https://img.shields.io/github/license/Danycraft98/TheImpossibleCube.svg?style=for-the-badge
+[license-url]: https://github.com/Danycraft98/TheImpossibleCube/blob/master/LICENSE.txt
 [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
 [linkedin-url]: https://www.linkedin.com/in/daniel-lee-jhl/
 [product-screenshot]: https://repository-images.githubusercontent.com/337784703/ce9f1180-825e-11eb-8bcc-04a652fb8f1e
