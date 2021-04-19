@@ -64,61 +64,46 @@ BG Colors:
   : *id002
   ? !!python/tuple [200, 650]
   : *id002
-  ? !!python/tuple [0, 600]
-  : &id003 !!python/tuple
-  - background
-  - !!python/tuple [0, 148, 255, 255]
-  ? !!python/tuple [50, 600]
-  : *id003
-  ? !!python/tuple [100, 600]
-  : *id003
-BG Tiles:
-  ? !!python/tuple [0, 250]
-  : &id008 !!python/tuple
-  - base
-  - !!python/tuple [0, 200]
-  ? !!python/tuple [50, 250]
-  : *id008
+BG Tiles: {}
 Chests: {}
-Enemies:
-  ? !!python/tuple [50, 550]
-  : !!python/tuple
-  - enemy_place
-  - &id014 !!python/tuple [0, 0]
-  - 1.0
+Enemies: {}
 Environment: {}
-Foreground:
-  ? !!python/tuple [200, 250]
-  : !!python/tuple
-  - base
-  - !!python/tuple [300, 500]
+Foreground: {}
 Items: {}
 Solid:
-  ? !!python/tuple [0, 0]
-  : !!python/tuple
+  ? !!python/tuple [150, 50]
+  : &id005 !!python/tuple
   - base
-  - !!python/tuple [0, 450]
-Solid/Fore: {}
-Water:
-  ? !!python/tuple [0, 550]
-  : &id048 !!python/tuple
-  - water
-  - !!python/tuple [100, 0]
-  ? !!python/tuple [0, 650]
-  : *id048
-  ? !!python/tuple [50, 550]
-  : *id048
-  ? !!python/tuple [50, 650]
-  : *id048
-  ? !!python/tuple [100, 550]
-  : !!python/tuple
-  - water
   - !!python/tuple [50, 0]
-  ? !!python/tuple [100, 600]
-  : !!python/tuple
-  - water
-  - !!python/tuple [50, 50]
-  ? !!python/tuple [100, 650]
-  : !!python/tuple
-  - water
-  - !!python/tuple [50, 50]
+  ? !!python/tuple [200, 50]
+  : *id005
+  ? !!python/tuple [250, 50]
+  : *id005
+  ? !!python/tuple [300, 50]
+  : *id005
+  ? !!python/tuple [350, 50]
+  : *id005
+  ? !!python/tuple [400, 50]
+  : *id005
+  ? !!python/tuple [450, 50]
+  : *id005
+  ? !!python/tuple [500, 50]
+  : *id005
+  ? !!python/tuple [550, 50]
+  : *id005
+  ? !!python/tuple [600, 50]
+  : *id005
+  ? !!python/tuple [650, 50]
+  : *id005
+  ? !!python/tuple [0, 300]
+  : *id005
+  ? !!python/tuple [50, 300]
+  : *id005
+  ? !!python/tuple [50, 300]
+  : *id005
+  ? !!python/tuple [100, 300]
+  : &id008 !!python/tuple
+  - base
+  - !!python/tuple [300, 0]
+Solid/Fore: {}
+Water: {}

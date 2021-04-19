@@ -11,3 +11,8 @@
 7. wall (vertical left)
 8. wall  (vertical right)
 9. wall (horizontal bottom)
+
+
+User [5,5] overworld to edit.map
+
+TODO: add map editor for cutomizable map.
