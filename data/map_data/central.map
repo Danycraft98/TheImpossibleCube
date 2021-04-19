@@ -104,35 +104,11 @@ BG Colors:
   : *id003
   ? !!python/tuple [100, 600]
   : *id003
-  ? !!python/tuple [500, 0]
-  : &id006 !!python/tuple
-  - background
-  - !!python/tuple [171, 171, 171, 255]
-  ? !!python/tuple [500, 50]
-  : *id006
-  ? !!python/tuple [500, 100]
-  : *id006
-  ? !!python/tuple [650, 250]
-  : *id006
-  ? !!python/tuple [700, 250]
-  : *id006
-  ? !!python/tuple [750, 250]
-  : *id006
-  ? !!python/tuple [800, 250]
-  : *id006
-  ? !!python/tuple [850, 250]
-  : *id006
-  ? !!python/tuple [900, 250]
-  : *id006
-  ? !!python/tuple [950, 250]
-  : *id006
 BG Tiles:
-  ? !!python/tuple [0, 250]
-  : &id008 !!python/tuple
+  ? !!python/tuple [650, 300]
+  : &id010 !!python/tuple
   - base
-  - !!python/tuple [0, 200]
-  ? !!python/tuple [50, 250]
-  : *id008
+  - !!python/tuple [50, 0]
 Chests: {}
 Enemies:
   ? !!python/tuple [50, 550]
@@ -148,10 +124,102 @@ Foreground:
   - !!python/tuple [300, 500]
 Items: {}
 Solid:
-  ? !!python/tuple [0, 0]
+  ? !!python/tuple [200, 0]
+  : &id004 !!python/tuple
+  - base
+  - !!python/tuple [100, 0]
+  ? !!python/tuple [200, 50]
+  : *id004
+  ? !!python/tuple [200, 100]
+  : *id004
+  ? !!python/tuple [200, 150]
+  : *id004
+  ? !!python/tuple [200, 200]
+  : *id004
+  ? !!python/tuple [400, 200]
   : !!python/tuple
   - base
-  - !!python/tuple [0, 450]
+  - !!python/tuple [100, 50]
+  ? !!python/tuple [400, 200]
+  : !!python/tuple
+  - base
+  - !!python/tuple [100, 50]
+  ? !!python/tuple [450, 200]
+  : &id006 !!python/tuple
+  - base
+  - !!python/tuple [150, 0]
+  ? !!python/tuple [500, 200]
+  : *id006
+  ? !!python/tuple [550, 200]
+  : *id006
+  ? !!python/tuple [600, 200]
+  : !!python/tuple
+  - base
+  - !!python/tuple [150, 50]
+  ? !!python/tuple [200, 250]
+  : *id004
+  ? !!python/tuple [400, 250]
+  : &id007 !!python/tuple
+  - base
+  - !!python/tuple [250, 0]
+  ? !!python/tuple [200, 300]
+  : *id004
+  ? !!python/tuple [400, 300]
+  : *id007
+  ? !!python/tuple [600, 250]
+  : &id008 !!python/tuple
+  - base
+  - !!python/tuple [300, 0]
+  ? !!python/tuple [650, 300]
+  : &id005 !!python/tuple
+  - base
+  - !!python/tuple [50, 0]
+  ? !!python/tuple [700, 300]
+  : *id005
+  ? !!python/tuple [750, 300]
+  : *id005
+  ? !!python/tuple [800, 300]
+  : *id005
+  ? !!python/tuple [850, 300]
+  : *id005
+  ? !!python/tuple [900, 300]
+  : *id005
+  ? !!python/tuple [950, 300]
+  : *id005
+  ? !!python/tuple [200, 350]
+  : *id004
+  ? !!python/tuple [400, 350]
+  : *id007
+  ? !!python/tuple [600, 350]
+  : *id008
+  ? !!python/tuple [200, 400]
+  : *id004
+  ? !!python/tuple [400, 400]
+  : !!python/tuple
+  - base
+  - !!python/tuple [200, 50]
+  ? !!python/tuple [450, 400]
+  : &id009 !!python/tuple
+  - base
+  - !!python/tuple [200, 0]
+  ? !!python/tuple [500, 400]
+  : *id009
+  ? !!python/tuple [550, 400]
+  : *id009
+  ? !!python/tuple [600, 400]
+  : !!python/tuple
+  - base
+  - !!python/tuple [250, 50]
+  ? !!python/tuple [200, 450]
+  : *id004
+  ? !!python/tuple [200, 500]
+  : *id004
+  ? !!python/tuple [200, 550]
+  : *id004
+  ? !!python/tuple [200, 600]
+  : *id004
+  ? !!python/tuple [200, 650]
+  : *id004
 Solid/Fore: {}
 Water:
   ? !!python/tuple [0, 550]

@@ -1,18 +1,44 @@
 BG Colors:
   fill: !!python/tuple [171, 171, 171, 255]
-  ? !!python/tuple [200, 0]
+  ? !!python/tuple [700, 0]
   : &id002 !!python/tuple
   - background
   - !!python/tuple [255, 178, 127, 255]
+  ? !!python/tuple [100, 50]
+  : *id002
+  ? !!python/tuple [150, 50]
+  : *id002
+  ? !!python/tuple [150, 50]
+  : *id002
   ? !!python/tuple [200, 50]
   : *id002
-  ? !!python/tuple [200, 100]
+  ? !!python/tuple [250, 50]
   : *id002
-  ? !!python/tuple [200, 150]
+  ? !!python/tuple [300, 50]
   : *id002
-  ? !!python/tuple [200, 200]
+  ? !!python/tuple [350, 50]
   : *id002
-  ? !!python/tuple [200, 250]
+  ? !!python/tuple [400, 50]
+  : *id002
+  ? !!python/tuple [450, 50]
+  : *id002
+  ? !!python/tuple [500, 50]
+  : *id002
+  ? !!python/tuple [550, 50]
+  : *id002
+  ? !!python/tuple [600, 50]
+  : *id002
+  ? !!python/tuple [650, 50]
+  : *id002
+  ? !!python/tuple [700, 50]
+  : *id002
+  ? !!python/tuple [100, 100]
+  : *id002
+  ? !!python/tuple [100, 150]
+  : *id002
+  ? !!python/tuple [100, 200]
+  : *id002
+  ? !!python/tuple [100, 250]
   : *id002
   ? !!python/tuple [0, 300]
   : *id002
@@ -20,15 +46,15 @@ BG Colors:
   : *id002
   ? !!python/tuple [100, 300]
   : *id002
-  ? !!python/tuple [150, 300]
+  ? !!python/tuple [100, 350]
   : *id002
-  ? !!python/tuple [200, 300]
+  ? !!python/tuple [100, 400]
   : *id002
-  ? !!python/tuple [200, 350]
+  ? !!python/tuple [100, 450]
   : *id002
-  ? !!python/tuple [200, 400]
+  ? !!python/tuple [100, 500]
   : *id002
-  ? !!python/tuple [200, 450]
+  ? !!python/tuple [150, 500]
   : *id002
   ? !!python/tuple [200, 500]
   : *id002
@@ -46,28 +72,6 @@ BG Colors:
   : *id003
   ? !!python/tuple [100, 600]
   : *id003
-  ? !!python/tuple [500, 0]
-  : &id006 !!python/tuple
-  - background
-  - !!python/tuple [171, 171, 171, 255]
-  ? !!python/tuple [500, 50]
-  : *id006
-  ? !!python/tuple [500, 100]
-  : *id006
-  ? !!python/tuple [650, 250]
-  : *id006
-  ? !!python/tuple [700, 250]
-  : *id006
-  ? !!python/tuple [750, 250]
-  : *id006
-  ? !!python/tuple [800, 250]
-  : *id006
-  ? !!python/tuple [850, 250]
-  : *id006
-  ? !!python/tuple [900, 250]
-  : *id006
-  ? !!python/tuple [950, 250]
-  : *id006
 BG Tiles:
   ? !!python/tuple [0, 250]
   : &id008 !!python/tuple
