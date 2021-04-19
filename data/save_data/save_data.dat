@@ -3,8 +3,8 @@
   money: 0
   name: A
   save_world_coords: !!python/tuple
-  - 5
-  - 5
+  - 3
+  - 3
   start_coord: !!python/tuple
   - 9
   - 4

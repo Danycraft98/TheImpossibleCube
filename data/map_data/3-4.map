@@ -71,6 +71,14 @@ Environment: {}
 Foreground: {}
 Items: {}
 Solid:
+  ? !!python/tuple [700, 0]
+  : &id004 !!python/tuple
+  - base
+  - !!python/tuple [100, 0]
+  ? !!python/tuple [100, 50]
+  : !!python/tuple
+  - base
+  - !!python/tuple [100, 50]
   ? !!python/tuple [150, 50]
   : &id005 !!python/tuple
   - base
@@ -95,6 +103,20 @@ Solid:
   : *id005
   ? !!python/tuple [650, 50]
   : *id005
+  ? !!python/tuple [700, 50]
+  : !!python/tuple
+  - base
+  - !!python/tuple [250, 50]
+  ? !!python/tuple [100, 100]
+  : *id004
+  ? !!python/tuple [100, 100]
+  : *id004
+  ? !!python/tuple [100, 150]
+  : *id004
+  ? !!python/tuple [100, 200]
+  : *id004
+  ? !!python/tuple [100, 250]
+  : *id004
   ? !!python/tuple [0, 300]
   : *id005
   ? !!python/tuple [50, 300]
@@ -102,8 +124,30 @@ Solid:
   ? !!python/tuple [50, 300]
   : *id005
   ? !!python/tuple [100, 300]
-  : &id008 !!python/tuple
+  : !!python/tuple
   - base
   - !!python/tuple [300, 0]
+  ? !!python/tuple [100, 350]
+  : *id004
+  ? !!python/tuple [100, 400]
+  : *id004
+  ? !!python/tuple [100, 450]
+  : *id004
+  ? !!python/tuple [100, 500]
+  : !!python/tuple
+  - base
+  - !!python/tuple [200, 50]
+  ? !!python/tuple [150, 500]
+  : *id005
+  ? !!python/tuple [200, 500]
+  : !!python/tuple
+  - base
+  - !!python/tuple [150, 50]
+  ? !!python/tuple [200, 550]
+  : *id004
+  ? !!python/tuple [200, 600]
+  : *id004
+  ? !!python/tuple [200, 650]
+  : *id004
 Solid/Fore: {}
 Water: {}

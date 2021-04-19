@@ -4,48 +4,24 @@ from operator import attrgetter
 import pygame as pg
 
 from settings import prepare, tools, status_machine, menu_functions
+from .constants import *
+from .exit_game import Exit
 
 FONT = pg.font.Font(prepare.FONTS["Fixedsys500c"], 60)  ###
 MEDIUM_FONT = pg.font.Font(prepare.FONTS["Fixedsys500c"], 50)  ###
 SMALL_FONT = pg.font.Font(prepare.FONTS["Fixedsys500c"], 32)  ###
 TINY_FONT = pg.font.Font(prepare.FONTS["Fixedsys500c"], 28)  ###
 
-HIGHLIGHT_COLOR = (108, 148, 200)
-WINDOW_COLOR = (48, 48, 48)
-DIM_YELLOW = (255, 200, 0)
-DIM_RED = (255, 73, 73)
-DIM_GREEN = (50, 220, 50)
-
 ARROWS = prepare.GFX["misc"]["menu_arrows"]
-ARROW_SIZE = (86, 101)
-ARROW_POS = [(62, 520), (617, 520)]
-
 MAX_SCROLL = -prepare.PLAY_RECT.width
 PLAYER_RECT = pg.Rect((32, 27), (400, 400))
-
-OPTIONS = ["ABILITY", "ITEMS", "MAP"]
-OPT_Y = 497
-OPT_SPACER = 50
-OPT_CENTER_X = 382
-
 EQUIPPED_RECT = pg.Rect((473, 375), (258, 50))
-
 GEAR_BOX = prepare.GFX["misc"]["gear_box"]
-GEAR_BOX_CENTER = (OPT_CENTER_X, 615)
-GEAR_ORDER = ("head", "body", "armleg", "weapon", "shield")
-GEAR_TITLE = ("Headgear", "Armor", "Gloves/Shoes", "Weapon", "Shield")
-GEAR_SPEC_TITLE_CENTER = (OPT_CENTER_X, 485)
-GEAR_DESCRIP_CENTER = (OPT_CENTER_X, 517)
-GEAR_DESCRIP_SPACE = 27
 
 STAT_ARROWS = prepare.GFX["misc"]["stat_arrows"]
-STAT_ARROW_SIZE = (19, 24)
-STAT_SPACE = 55
-STAT_START = (645, 99)
-STAT_SPEED_POS = (STAT_START[0] - 26, STAT_START[1] + STAT_SPACE * 2)
 STAT_ERASE_RECT = pg.Rect(600, 90, 130, 180)
 
-NOT_IMPLEMENTED = ["ABILITY", "ITEMS", "MAP"]  ###
+NOT_IMPLEMENTED = ["ITEMS", "MAP"]  ###
 
 
 class Camp(status_machine.State):
@@ -63,11 +39,10 @@ class Camp(status_machine.State):
         State machine, base images, and scrolling variables reset on startup.
         """
         status_machine.State.startup(self, now, persistant)
-        state_dict = {"OPTIONS": Options(),
-                      "EQUIP_SPECIFIC": EquipSpecific()}
+        state_dict = {"OPTIONS": CampOptions(), "SELECT": CampOptions(), "EQUIP_SPECIFIC": EquipSpecific(), "EXIT": Exit()}
         self.status_machine.setup_states(state_dict, "OPTIONS")
         self.player = self.persist["player"]
-        self.status_machine.state.persist["player"] = self.player  ###
+        self.status_machine.state.persist["player"] = self.player
         self.game_screen = pg.display.get_surface().copy()
         self.base = self.make_base_image()
         self.offset = 0
@@ -161,24 +136,23 @@ class Camp(status_machine.State):
             self.persist["sidebar"].draw(surface, self.offset)
 
 
-class Options(menu_functions.BasicMenu):
+class CampOptions(menu_functions.BasicMenu):
     """The root options in the camp menu."""
 
     def __init__(self):
         menu_functions.BasicMenu.__init__(self, 4)
-        self.options = self.make_options(MEDIUM_FONT, OPTIONS, OPT_Y,
-                                         OPT_SPACER, OPT_CENTER_X)
+        self.options = self.make_options(MEDIUM_FONT, CAMP_OPTIONS, CAMP_OPT_Y, CAMP_OPT_SPACER, OPT_CENTER_X)
 
     def draw(self, surface, interpolate):
         """Draw menu options highlighting the currently selected one."""
-        for i, val in enumerate(OPTIONS):
+        for i, val in enumerate(CAMP_OPTIONS):
             which = "selected" if i == self.index else "unselected"
             msg, rect = self.options[which][i]
             surface.blit(msg, rect)
 
     def pressed_enter(self):
         """Enter next substate or view the controls screen on enter."""
-        self.next = OPTIONS[self.index]
+        self.next = CAMP_OPTIONS[self.index]
         if self.next not in NOT_IMPLEMENTED:
             self.done = True
 
@@ -242,11 +216,11 @@ class EquipGeneral(menu_functions.BasicMenu):
         highlight = pg.Rect(EQUIPPED_RECT.topleft, prepare.CELL_SIZE)
         highlight.move_ip((prepare.CELL_SIZE[0] + 2) * self.index, 0)
         surface.fill(pg.Color("yellow"), highlight.inflate(4, 4))
-        surface.fill(HIGHLIGHT_COLOR, highlight)
+        surface.fill(CAMP_HIGHLIGHT_COLOR, highlight)
         title = GEAR_TITLE[self.index]
         rend_it = (FONT, title, pg.Color("white"), self.rendered)
         rended = tools.get_rendered(*rend_it)
-        rend_rect = rended.get_rect(center=(OPT_CENTER_X, OPT_Y))
+        rend_rect = rended.get_rect(center=(OPT_CENTER_X, CAMP_OPT_Y))
         surface.blit(rended, rend_rect)
         for i, arrow in enumerate(self.arrows):
             surface.blit(arrow, ARROW_POS[i])
@@ -311,10 +285,8 @@ class EquipSpecific(menu_functions.BidirectionalMenu):
 
     def make_stats(self):
         """Draw hypothetical new stats to a surface."""
-        stat_offset = (STAT_START[0] - STAT_ERASE_RECT.x,
-                       STAT_START[1] - STAT_ERASE_RECT.y)
-        stat_speed_offset = (STAT_SPEED_POS[0] - STAT_ERASE_RECT.x,
-                             STAT_SPEED_POS[1] - STAT_ERASE_RECT.y)
+        stat_offset = (CAMP_STAT_START[0] - STAT_ERASE_RECT.x, CAMP_STAT_START[1] - STAT_ERASE_RECT.y)
+        stat_speed_offset = (STAT_SPEED_POS[0] - STAT_ERASE_RECT.x, STAT_SPEED_POS[1] - STAT_ERASE_RECT.y)
         final = pg.Surface(STAT_ERASE_RECT.size).convert_alpha()
         final.fill(WINDOW_COLOR)
         stats = self.get_new_stats()
@@ -358,8 +330,8 @@ class EquipSpecific(menu_functions.BidirectionalMenu):
         for i, line in enumerate(gear.descript):
             rend_it = (TINY_FONT, line, pg.Color("white"), self.rendered)
             rended = tools.get_rendered(*rend_it)
-            center_y = GEAR_DESCRIP_CENTER[1] + GEAR_DESCRIP_SPACE * i
-            center = GEAR_DESCRIP_CENTER[0], center_y
+            center_y = GEAR_DESC_CENTER[1] + GEAR_DESC_SPACE * i
+            center = GEAR_DESC_CENTER[0], center_y
             rend_rect = rended.get_rect(center=center)
             surface.blit(rended, rend_rect)
 
@@ -371,7 +343,7 @@ class EquipSpecific(menu_functions.BidirectionalMenu):
         x, y = self.index
         highlight.move_ip(spacer * x, spacer * y)
         surface.fill(pg.Color("yellow"), highlight.inflate(4, 4))
-        surface.fill(HIGHLIGHT_COLOR, highlight)
+        surface.fill(CAMP_HIGHLIGHT_COLOR, highlight)
 
     def pressed_enter(self):
         """

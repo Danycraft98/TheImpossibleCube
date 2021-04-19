@@ -180,6 +180,6 @@ Please ignore the notes below this message as it is for my personal safe keeping
 9. wall (horizontal bottom)
 
 
-User [5,5] overworld to edit.map
+User [3,3] overworld to edit.map
 
 TODO: add map editor for cutomizable map.

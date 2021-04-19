@@ -1,4 +1,4 @@
-from status import title, splash, select, register, viewcontrols, game, camp
+from status import title, splash, select, register, viewcontrols, game, camp, exit_game
 from . import prepare, tools
 
 STATUS_DICT = {
@@ -7,6 +7,7 @@ STATUS_DICT = {
     "SELECT": select.Select(),
     "REGISTER": register.Register(),
     "CONTROLS": viewcontrols.ViewControls(),
+    "EXIT": exit_game.Exit(),
     "GAME": game.Game(),
     "CAMP": camp.Camp()
 }

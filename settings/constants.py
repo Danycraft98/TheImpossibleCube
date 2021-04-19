@@ -34,7 +34,7 @@ OPPOSITE_DICT = {
 DEFAULT_PLAYER = {
     "name": None,
     "world": "overworld.wrl",
-    "save_world_coords": (5, 5),
+    "save_world_coords": (3, 3),
     "start_coord": (12, 4),
     "start_direction": "right",
     "identifiers": {},

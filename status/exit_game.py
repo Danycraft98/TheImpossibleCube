@@ -3,6 +3,7 @@ State for the Title scene.
 """
 
 import random
+import sys
 
 import pygame as pg
 
@@ -14,7 +15,7 @@ from .constants import *
 SKY_RECT = pg.Rect(0, 0, 1200, 514)
 
 
-class Title(status_machine.State):
+class Exit(status_machine.State):
     """This State is updated while our game shows the title screen."""
 
     def __init__(self):
@@ -61,8 +62,12 @@ class Title(status_machine.State):
         press.
         """
         if event.type == pg.KEYDOWN:
-            self.next = "SELECT"
-            self.done = True
+            if event.key == pg.K_y:
+                pg.quit()
+                sys.exit()
+            else:
+                self.next = "SELECT"
+                self.done = True
 
 
 class TitleImage(tools.BaseSprite):
@@ -82,7 +87,7 @@ class TitleImage(tools.BaseSprite):
 class AnyKey(pg.sprite.Sprite):
     def __init__(self, *groups):
         pg.sprite.Sprite.__init__(self, *groups)
-        self.raw_image = render_font("Fixedsys500c", 30, "[Press Any Key]", (255, 255, 0))
+        self.raw_image = render_font("Fixedsys500c", 30, "Are You Sure? Press (Y/N)", (255, 255, 0))
         self.null_image = pg.Surface((1, 1)).convert_alpha()
         self.null_image.fill((0, 0, 0, 0))
         self.image = self.raw_image

@@ -29,7 +29,8 @@ class Select(status_machine.State):
         """
         status_machine.State.startup(self, now, persistant)
         state_dict = {"OPTIONS": Options(), "SELECT/REGISTER": SelectRegister(),
-                      "DELETE": Delete(), "CONFIRM": Confirm()}
+                      "DELETE": Delete(), "CONFIRM": Confirm(),
+                      "MORE": Options(SECONDARY_OPTIONS), "BACK": Options()}
         self.status_machine.setup_states(state_dict, "OPTIONS")
 
     def cleanup(self):
@@ -123,11 +124,12 @@ class Options(SelectState):
     Essentially the main menu state of the whole game.
     """
 
-    def __init__(self):
+    def __init__(self, options=OPTIONS):
         SelectState.__init__(self, 3)
         self.players = self.load_players()
         self.names = self.make_player_names()
-        self.options = self.make_options(FONT, OPTIONS, OPT_Y, OPT_SPACER)
+        self.opt_const = options
+        self.options = self.make_options(FONT, options, OPT_Y, OPT_SPACER)
         self.image = pg.Surface(prepare.SCREEN_SIZE).convert()
         self.image.set_colorkey(prepare.COLOR_KEY)
         self.image.fill(prepare.COLOR_KEY)
@@ -182,11 +184,11 @@ class Options(SelectState):
 
     def pressed_enter(self):
         """Enter next substate or view the controls screen on enter."""
-        self.next = OPTIONS[self.index]
+        self.next = self.opt_const[self.index]
         if self.next == "DELETE":
             if not all(player == "EMPTY" for player in self.players):
                 self.done = True
-        elif self.next == "CONTROLS":
+        elif self.next in ["CONTROLS", "EXIT"]:
             self.quit = True
         else:
             self.done = True
@@ -196,10 +198,10 @@ class Options(SelectState):
         Blit the base image and options to a seperate surface for later use.
         Then blit that surface and the players to the screen.
         """
-        self.image.blit(prepare.GFX["misc"]["charcreate"], MAIN_TOPLEFT)
+        self.image.blit(prepare.GFX["misc"]["charcreate"], MAIN_TOP_LEFT)
         for name_info in self.names:
             self.image.blit(*name_info)
-        for i, val in enumerate(OPTIONS):
+        for i, val in enumerate(self.opt_const):
             which = "selected" if i == self.index else "unselected"
             msg, rect = self.options[which][i]
             self.image.blit(msg, rect)
@@ -290,11 +292,10 @@ class Confirm(SelectState):
     def __init__(self):
         self.box_image = prepare.GFX["misc"]["delete"]
         centerx = prepare.SCREEN_RECT.centerx
-        top = MAIN_TOPLEFT[1] + 130
+        top = MAIN_TOP_LEFT[1] + 130
         self.rect = self.box_image.get_rect(centerx=centerx, top=top)
         SelectState.__init__(self, 2)
-        self.options = self.make_options(SMALL_FONT, ["Confirm", "Cancel"],
-                                         self.rect.y + 130, 35)
+        self.options = self.make_options(SMALL_FONT, ["Confirm", "Cancel"], self.rect.y + 130, 35)
         self.player = None
 
     def startup(self, now, persistant):
